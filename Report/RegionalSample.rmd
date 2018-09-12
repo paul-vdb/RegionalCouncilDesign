@@ -1,0 +1,110 @@
+---
+title: \vspace{1cm} \LARGE Regional Council Sample Design
+subtitle: \large Proof of Concept
+author: \mycolor \newline Planning, Monitoring and Reporting
+date: \mycolor `r format(Sys.Date(),"%B %Y")`
+documentclass: article
+fontsize: 12pt
+mainfont: Archer Book
+mathfont: Archer Bold
+sansfont: Archer Bold
+bibliography: references.bib
+csl: "`r paste(as.character(system.file('csl', 'elsevier-harvard.csl', package = 'DocRR')))`"
+#This section contains raw LATEX code and shouldn't be altered
+header-includes:
+#--------------Define color for use here------------------------#
+- \newcommand{\mycolor}{\color{Lake}}  #Define color for use here
+- \ThisULCornerWallPaper{1}{{`r DocRR::Lake()`}}
+output:
+#------------If wanting word  or html  versions uncomment either one below--------#
+  word_document: default 
+  # html_document: default
+#-------Make sure to comment out everything below if using word or html above-----#
+#  pdf_document:
+#    keep_tex: false #Only have true if you want to keep the latex file produced
+#    latex_engine: xelatex #Has to be xelatex to use Archer fonts
+#    template: doc_article.tex #Don't change this!!!
+#    toc: false  #include table of contents
+#    toc_depth: 1 #specify the depth of the table of contents
+#    number_sections: true #specify whether or not to add numbered sections
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = NULL)
+```
+
+```{r DontRun, include=FALSE, eval = FALSE}
+library(rmarkdown)
+library(DocRR)
+library(knitr)
+render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.pdf")
+render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.docx")
+```
+
+# Introduction{-}
+
+** Ollie to add context here **
+
+Regional councils are required to report on the State of the Environment (SOE) for the area that is under their management.
+
+1. Why would Regional Councils monitor biodiversity?
+They are required to.
+They need to know for management purposes.
+
+The Department of Conservation has developed a National Biodiversity Monitoring Programme which monitors terrestrial biodiversity on an
+8-km grid at over 1,400 sites on Public Conservation Land (PCL). Regional Councils are resoponsible for a significant amount of biodiversity management
+contiguous with PCL. For this reason, any monitoring that the Councils implement should compliment the existing DOC programme to make inference at the 
+scale of the Regional Council and not off of PCL. Furthermore, as a general principle, monitoring should be well designed and follow standard protocols
+in order to be successful. 
+
+In order to integrate monitoring between the Regional Councils and DOC we recommend implementing the New Zealand Master Sample [@bates2018]. This document compares
+and contrasts the advantages of the Master Sample over adopting the 8-km grid for Regional Councils who manage diverse ecosystems mixed with 
+protected habitats, industry and urban areas. We describe the two designs in the context of the sampling requirements
+
+* Stratifcation (Bush, Urban, Pasture)
+* Multiple Spatial Scales
+* Adaptability (inaccessible sites, changing resources etc.)
+* Incorporate legacy monitoring
+* Coordination between MfE and DOC.
+
+# Monitoring Design Definition{-}
+
+** Define Master Sample **
+
+** Define 8-km grid **
+
+# Stratification{-}
+
+Regional Councils are specifically interested in monitoring all non-PCL in their area, which is made up of a very diverse number of ecosystems.
+Biodiversity and ecological integrity is likely to be low and reasonably constant through time on pasture, while high and dynamic in bush. Urban areas
+would also be very heterogenous with parks and greenspaces host to many different species while disturbed city areas very low and constant.
+Any monitoring programme developed would need to stratify over different ecosystem types to efficiently account for this and truly capture the heterogeneity
+of ecological integrity off of the PCL.
+
+# Adaptability{-}
+
+Heterogeneity in ecosystems also means that there are many sites which may be rejected due to lack of access to private land or the randomly selected site lands
+directly on top of a building. Objective, statistically robust methods must be set up to allow for establishing sites in feasible areas when the original sample 
+has to be rejected.
+
+# Legacy Monitoring{-}
+
+Often, there are existing monitoring networks that have historical information and/or are currently monitored. Incorporating these sites into
+new monitoring programmes improves estimation of trends and can reduce costs if the sites are already resourced. We will cover how to incorporate
+these types of legacy monitoring sites in both the 8-km grid and Master Sample. We 
+
+# Adaptability{-}
+
+* Site rejection etc
+* Sampling rotation flexibility (temporal sampling flexibility).
+
+# Spatial Scales{-}
+
+* Scale to difference spatial levels (can do local monitoring for South Auckland/Wairapa and contribute to the region/national scale).
+
+# Coordination{-}
+
+# Conclusions{-}
+
+#References{-}
