@@ -40,7 +40,7 @@ library(DocRR)
 library(knitr)
 setwd("C:/Users/Paul/Documents/Department of Conservation/Regional Councils/RegionalCouncilDesign/Report")
 #render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.pdf")
-render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.docx")
+render("RegionalSample.Rmd", output_file = "RegionalSample.docx")
 ```
 
 # Introduction{-}
@@ -139,19 +139,22 @@ the estimate for the entire region.
 Systematic sampling such as the 8-km grid can stratified by changing the grid size in each region. For example, pasture could be sampled every 10-km while native forest every 6-km.
 While in theory this would be okay, in practice it may perform poorly as the native forest may be patchy and surrounded by pasture. Depending on the landscape,
 achieving a feasible sample size for the two different stratum may be difficult. In addition to, once the 8-km grid is deviated from, it removes the explicit integration with
-DOC's existing national programme, which would be the basis for using systematic sampling over a more modern flexible technique in the first place. Using the Master Sample to stratify is very simple. Choose the number of sites in each stratum and then select the first sites in each stratum based on their ordering. Any sample size
+DOC's existing national programme, which would be the basis for using systematic sampling over a more modern flexible technique in the first place. Choosing grid size of 4-km and 16-km would allow for the continued integration of the 8-km grid with intensified, or reduced programmes. 
+
+Using the Master Sample to stratify is very simple. Choose the number of sites in each stratum and then select the first sites in each stratum based on their ordering. Any sample size
 can easily be achieved and any stratum, no matter how small area it is will have as many sample sites as required.
+Traditional statistical theory recommends that strata should be chosen that are constant through time (e.g. not subject to change). Using forest and non-forest can be an issue when some non-forested areas are recovering habitat and may at some point become defined as forested. The Master Sample is flexible to account for changing ecosystems to choose strata that are efficient but the spatial extent may need to be adapted in the long-term.
 
 ## Adaptability{-}
-
-* Design to adapt for changing landcover 
 
 Heterogeneity in ecosystems/landcover means that there are many sites which may be rejected due to lack of access to private land or the randomly selected site lands
 directly on top of a building. Objective, statistically robust methods must be set up to allow for establishing sites in feasible areas when the original sample 
 has to be rejected. The National Biodiversity Monitoring Programme has strict rules to relocate sites from the 8-km grid randomly. The Master Sample has an explicit method
-in the design to relocate sites that fail to fall onto accessible areas. Due to the hierarchical ordering, if a site is rejected, a new site in order is available to replace it
+using the hiearchical ordering to relocate sites that fail to fall onto accessible areas. If a site is rejected, a new site in order is available to replace it
 maintaining overall spatial balance. Instead of the user needing to re-establish the site randomly, they move down the list of available sites adding the new one and removing the missed site.
 The procedure is simple and requires nothing but identifying that a site is not able to be sampled.
+
+In the same sense, if a monitoring programme stratifies by forest, pasture, urban and other, then it is possible through new mangement regimes that the pasture is actively managed and moves from pasture to recovering shrub (other) and then finally to forest. These sites may have their own specific programme to monitoring progress of the reforestation. Otherwise, through the hiearchichal ordering of the Master Sample, a new pasture site is established and then depending on the existing sites ordering it is either dropped from the sample or another site in the "other" category is dropped making space for the continued monitoring of this site.
 
 ## Legacy Monitoring{-}
 
