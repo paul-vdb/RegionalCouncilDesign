@@ -39,7 +39,7 @@ library(rmarkdown)
 library(DocRR)
 library(knitr)
 setwd("C:/Users/Paul/Documents/Department of Conservation/Regional Councils/RegionalCouncilDesign/Report")
-render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.pdf")
+#render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.pdf")
 render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.docx")
 ```
 
@@ -52,39 +52,45 @@ Regional councils are responsible for managing biodiversity off PCL within their
 
 ## Principles of monitoring {-}
 
-A successful monitoring programme provides clear, detailed documentation of the design decisions made. Clear articulation of objectives is required followed by clear definition of the area over which the monitoring is needed.
+For a monitoring programme to be successful it is important to provide clear, detailed documentation of the design decisions made. We recommend following the approach described in @reynolds2016road to work through the design decision making process. Articulating clear and achievable objectives is critical and drives all of the design decisions that follow. For example, to report on the state of the environment (SOE) would lead to "status and trend" monitoring. Status and trend monitoring may allow for inference about ecological integrity across an area but will not give information about management success in a particular region. If a specific monitoring action is undertaken and we are interested in measuring its success, we would undertake "effectiveness monitoring". Effectiveness monitoring may result in choosing a BACI (Before-After Control-Impact) design. The objectives decide what is measured, where it is measured and how frequently to return. Without clear objectives a monitoring problem will not likely be successful and can be a waste of resources if it fails to provided management and stakeholders without useful information.
 
-To achieve this we need to define a target population and sample frame. The target population is defined as the population or resource of interest. The sample frame is a spatial representation
-of the target population. Once the target population and sample frame are defined it is important to account for any logistical constraints (such as accessibility and safe conditions for field crews) as not all areas can be visited safely. A clear definition of the sample frame is important to ensure that the scope of inference is understood.
+Based on the objectives, conceptual models are used to apply expert knowledge and develop the required indicators and measures that are needed to report back on. The indicators and measures that are reported on will identify the target population and sample frame. The target population is defined as the population or resource of interest (e.g. all native forest in the region). The sample frame is a spatial representation of the target population (e.g. the best spatial representive information available about native forests in the region). Once the target population and sample frame are defined it is important to account for any logistical constraints (such as accessibility and safe conditions for field crews) as not all areas can be visited safely. A clear definition of the sample frame is important to ensure that the scope of inference is understood. Steep unsafe areas that are not able to be sampled may exclude unique habitats from the sample.
 
-Following this sample effort needs to determined and sample units drawn to provide an unbiased representation of the sample frame. This is an important concept and the key reason that sampling effort needs to be distributed across the population of interest, and not positioned in logistically convenient locations such as just near tracks and roads (i.e. convenience sampling) or areas thought to be representative (judgemental sampling). When choosing the sample from the sampling frame it is important that it is representative so that it reflects the entire population of interest and the area over which inference can be made. Sample units need to be derived using a probabilistic method. 
+Following choosing what to measure and where it should be measured, sample size and sites needs to determined. Sample size needs reflect the objectives and should be informed on the variability thought to occur in the population being measured. If we suspect biodiversity is reasonably consistent for bird communities on pastures in the Canterbury Plains, then a smaller amount of sampling may be required than when monitoring birds in regenerating native forest. Sampling locations should be drawn to provide an unbiased representation of the population of interest within the sample frame. A probabilistic sample ensures that the sample represents the population as a whole. Convenience or judgement sampling generally does not allow for inference over the entire population. 
 
 ## Existing monitoring{-}
 
-The National Biodiversity Monitoring Programme is a systematic sample spread across New Zealand on an 8-km grid with a random start. With systematic sampling effort is proportional to area. This ensures sites are well spread across space. For sampling large regular areas, such as PCL, systematic sampling is very efficient. The spread of effort
+The National Biodiversity Monitoring Programme (NMBP) is a systematic sample spread across New Zealand on an 8-km grid with a random start. With systematic sampling effort is proportional to area and a random start makes it a probabilistic sample. This ensures sites are well spread across space. For sampling large regular areas, such as PCL, systematic sampling is very efficient. The spread of effort
 improves precision over simple random sampling any time there are strong spatial trends in the population. In the rare case that there is a periodic trend in the population that matches the grid, the sampling can be biased. 
 There are roughly 1,400 sites on the 8-km grid that are currently monitored for ecological integrity on PCL. Each year, 20% of the sites (randomly selected) are 
 monitored on a non-overlapping rotating schedule. Monitoring in this way puts emphasis on capturing spatial varibility over short-term trends. The programme captures long-term trends in 
-ecological integrity through repeated sampling every 5-years. The 8-km grid exists across all of New Zealand and can be extended to Regional Council land, for example Greater Wellington Regional Council. 
+ecological integrity through repeated sampling every 5-years. The 8-km grid exists across all of New Zealand and can be extended to Regional Council land, for example Greater Wellington Regional Council. For Nelson or Westland, the largest proportion of Regional Council sites on the 8-km grid are on PCL and monitored as part of NBMP. In other extremes, such as Otago (427 sites off of PCL and 139 on PCL), a large number of grid sites are not on PCL. See Table 1 for a the number of sites on and off PCL for each region. Figure 1 shows the 8-km grid for the Otago region.
 
-Although systematic samples are not very flexible, the 8-km grid is very effective for monitoring biodiversity on a large scale. However, the 8-km grid would not be fit-for-purpose for monitoring of fragmented ecosystems with variable areas spread over a broad spatial extent. To facilitate monitoring of management effectiveness DOC has developed a flexible, adaptive approach to monitoring design based on what is known as a Master Sample. A master
-sample consists of a large number of sites which can be sub-sampled for a variety of different monitoring programmes. Master Samples are used to coordinate
-monitoring between different organizations and have been implemented in the United State (Washington, Oregon and Alaska) as well as Western Canada. Specifically,
-the New Zealand Master Sample is a spatially balanced sample with a hierachical order generated using Balanced Acceptance Sampling (BAS) [@bates2018]. Although spatial spread
-is not as good as a systematic sample, it is made up for a much more flexible design. The BAS Master Sample is dense, meaning that there are an infinite number of samples to select
-within any sub-region in New Zealand. This allows for it to be relevant at any spatial scale. Using the hiearchicial ordering of the Master Sample is how it helps coordinate monitoring.
-Sites have a unique ID that matches between different monitoring programmes that have overlapping space and it guarentees that the same sites are selected for both programmes allowing an
-automatic sharing of resources. Below shows an example of generating a sample using the Master Sample for the Otago region with a similar sample size to
-the 8-km grid. Of note, the Master Sample can be combined with the 8-km grid for estimation as both are unbiased area proportional samples, and this has been shown by simulation [@bates2018].
-Using the Master Sample ensures that objective probabilistic monitoring takes places that integrates with future DOC monitoring work and the existing National
-Biodiversity Monitoring Programme. In fact, the Master Sample used on PCL explicitly integrates the 8-km grid into any new monitoring programmes.
+**NEED TO MENTION LUCAS HERE OLLIE**
 
-![Otago Region Example of the Master Sample matching sample size as the 8-km grid.](images/MSOtago.png)
-
+```{r tab1, echo = FALSE, warning = FALSE}
+tab <- read.csv("data/Table.csv")
+names(tab) <- c("Region", "Off-PCL", "On-PCL")
+tab <- rbind(tab, data.frame(Region = "Total", "Off-PCL" = sum(tab["Off-PCL"]), "On-PCL" = sum(tab["On-PCL"]), check.names = FALSE))
+tab$Total <- rowSums(tab[,2:3])
+kable(tab)
+```
 See below for an example
 of the 8-km grid in the Otago Region.
 
 ![Otago Region Example of the 8-km grid which yields 574 sites.](images/Tier1Otago.png)
+
+Although systematic samples are not very flexible, the 8-km grid is very effective for monitoring biodiversity on a large scale. However, the grid would not be fit-for-purpose for monitoring of fragmented ecosystems with variable areas spread over a broad spatial extent. To facilitate monitoring of management effectiveness DOC has developed a flexible, adaptive approach to monitoring design based on what is known as a Master Sample. A Master
+Sample consists of a large number of sites which can be sub-sampled for a variety of different monitoring programmes. Master Samples are used to coordinate
+monitoring between different organizations and have been implemented in the United States (Washington, Oregon and Alaska) as well as Western Canada. Specifically,
+the New Zealand Master Sample is a spatially balanced sample with a hierachical order generated using Balanced Acceptance Sampling (BAS) [@bates2018]. Although spatial spread using BAS is not as good as a systematic sample, it is made up for by being much more flexible. The BAS Master Sample is dense, meaning that there are an infinite number of samples to select
+within any sub-region in New Zealand. This allows for it to be relevant at any spatial scale. The hiearchicial ordering of the Master Sample is how it helps coordinate monitoring.
+Sites have a unique ID that matches between different monitoring programmes that have overlapping space and it guarentees that the same sites are selected for both programmes allowing an
+automatic sharing of resources. Below shows an example of generating a sample using the Master Sample for the Otago region with a similar sample size to
+the 8-km grid. Of note, the Master Sample can be combined with the 8-km grid for estimation as both are unbiased area proportional samples, and this has been shown by simulation [@bates2018].
+Using the Master Sample ensures that objective probabilistic monitoring takes places that integrates with future DOC monitoring work and the existing NBMP. In fact, the Master Sample used on PCL explicitly integrates the 8-km grid into any new monitoring programmes.
+
+![Otago Region Example of the Master Sample matching sample size as the 8-km grid.](images/MSOtago.png)
 
 ## Objectives
 
