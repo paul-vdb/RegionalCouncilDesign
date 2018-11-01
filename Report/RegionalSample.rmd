@@ -20,13 +20,13 @@ output:
   word_document: default 
   # html_document: default
 #-------Make sure to comment out everything below if using word or html above-----#
-#  pdf_document:
-#    keep_tex: false #Only have true if you want to keep the latex file produced
-#    latex_engine: xelatex #Has to be xelatex to use Archer fonts
-#    template: doc_article.tex #Don't change this!!!
-#    toc: false  #include table of contents
-#    toc_depth: 1 #specify the depth of the table of contents
-#    number_sections: true #specify whether or not to add numbered sections
+  # pdf_document:
+    # keep_tex: false #Only have true if you want to keep the latex file produced
+    # latex_engine: xelatex #Has to be xelatex to use Archer fonts
+    # template: doc_article.tex #Don't change this!!!
+    # toc: false  #include table of contents
+    # toc_depth: 1 #specify the depth of the table of contents
+    # number_sections: true #specify whether or not to add numbered sections
 ---
 
 ```{r setup, include=FALSE}
@@ -39,7 +39,7 @@ library(rmarkdown)
 library(DocRR)
 library(knitr)
 setwd("C:/Users/Paul/Documents/Department of Conservation/Regional Councils/RegionalCouncilDesign/Report")
-#render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.pdf")
+# render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.pdf")
 render("RegionalSample.Rmd", output_file = "RegionalSample.docx")
 ```
 
@@ -63,7 +63,8 @@ Following choosing what to measure and where it should be measured, sample size 
 The National Biodiversity Monitoring Programme (NMBP) is a systematic sample spread across New Zealand on an 8-km grid with a random start. With systematic sampling effort is proportional to area and a random start makes it a probabilistic sample. This ensures sites are well spread across space. For sampling large regular areas, such as PCL, systematic sampling is very efficient. The spread of effort
 improves precision over simple random sampling any time there are strong spatial trends in the population. In the rare case that there is a periodic trend in the population that matches the grid, the sampling can be biased. 
 There are roughly 1,400 sites on the 8-km grid that are currently monitored for ecological integrity on PCL. Each year, 20% of the sites (randomly selected) are 
-monitored on a non-overlapping rotating schedule. Monitoring in this way puts emphasis on capturing spatial varibility over short-term trends. The programme captures long-term trends in ecological integrity through repeated sampling every 5-years. The 8-km grid exists across all of New Zealand and can be extended to Regional Council land, for example Greater Wellington Regional Council. For Nelson or Westland, the largest proportion of Regional Council sites on the 8-km grid are on PCL and monitored as part of NBMP. In other extremes, such as Otago (427 sites off of PCL and 139 on PCL), a large number of grid sites are not on PCL. See Table 1 for a the number of sites on and off PCL for each region. Figure 1 shows the 8-km grid for the Otago region.
+monitored on a non-overlapping rotating schedule. Monitoring in this way puts emphasis on capturing spatial varibility over short-term trends. The programme captures long-term trends in ecological integrity through repeated sampling every 5-years. The 8-km grid exists across all of New Zealand and can be extended to Regional Council land, for example Greater Wellington Regional Council. For Nelson or Westland, the largest proportion of Regional Council sites on the 8-km grid are on PCL and monitored as part of NBMP. In other extremes, such as Otago (427 sites off of PCL and 139 on PCL), a large number of grid sites are not on PCL. See Table 1 for a the number of sites on and off PCL for each region. Figure 1 shows the 8-km grid for the Southland region which
+is more balanced with 47% of the 8-km grid occuring off of PCL.
 
 Although systematic samples are not very flexible, the 8-km grid is very effective for monitoring biodiversity on a large scale. However, the 8-km grid would not be fit-for-purpose for monitoring of fragmented ecosystems with variable areas spread over a broad spatial extent. To facilitate monitoring of management effectiveness DOC has developed a flexible, adaptive approach to monitoring design based on what is known as a Master Sample. A master
 sample consists of a large number of sites which can be sub-sampled for a variety of different monitoring programmes. Master Samples are used to coordinate
@@ -72,7 +73,7 @@ the New Zealand Master Sample is a spatially balanced sample with a hierarchical
 is not as good as a systematic sample, it is made up for a much more flexible design. The BAS Master Sample is dense, meaning that there are an infinite number of samples to select
 within any sub-region in New Zealand. This allows for it to be relevant at any spatial scale. Using the hierarchical ordering of the Master Sample is how it helps coordinate monitoring.
 Sites have a unique ID that matches between different monitoring programmes that have overlapping space and it guarantees that the same sites are selected for both programmes allowing an
-automatic sharing of resources. Below shows an example of generating a sample using the Master Sample for the Otago region with a similar sample size to
+automatic sharing of resources. Below shows an example of generating a sample using the Master Sample for the Southland region with a similar sample size to
 the 8-km grid. Of note, the Master Sample can be combined with the 8-km grid for estimation as both are unbiased area proportional samples, and this has been shown by simulation [@bates2018].
 Using the Master Sample ensures that objective probabilistic monitoring takes places that integrates with future DOC monitoring work and the existing National
 Biodiversity Monitoring Programme. In fact, the Master Sample used on PCL explicitly integrates the 8-km grid into any new monitoring programmes.
@@ -87,9 +88,9 @@ tab$Total <- rowSums(tab[,2:3])
 kable(tab)
 ```
 See below for an example
-of the 8-km grid in the Otago Region.
+of the 8-km grid in the Southland Region.
 
-![Otago Region Example of the 8-km grid which yields 574 sites.](images/Tier1Otago.png)
+![Southland Region Example of the 8-km grid which yields 494 sites.](images/Tier1Southland.png)
 
 Although systematic samples are not very flexible, the 8-km grid is very effective for monitoring biodiversity on a large scale. However, the grid would not be fit-for-purpose for monitoring of fragmented ecosystems with variable areas spread over a broad spatial extent. To facilitate monitoring of management effectiveness DOC has developed a flexible, adaptive approach to monitoring design based on what is known as a Master Sample. A Master
 Sample consists of a large number of sites which can be sub-sampled for a variety of different monitoring programmes. Master Samples are used to coordinate
@@ -97,11 +98,11 @@ monitoring between different organizations and have been implemented in the Unit
 the New Zealand Master Sample is a spatially balanced sample with a hierachical order generated using Balanced Acceptance Sampling (BAS) [@bates2018]. Although spatial spread using BAS is not as good as a systematic sample, it is made up for by being much more flexible. The BAS Master Sample is dense, meaning that there are an infinite number of samples to select
 within any sub-region in New Zealand. This allows for it to be relevant at any spatial scale. The hiearchicial ordering of the Master Sample is how it helps coordinate monitoring.
 Sites have a unique ID that matches between different monitoring programmes that have overlapping space and it guarentees that the same sites are selected for both programmes allowing an
-automatic sharing of resources. Below shows an example of generating a sample using the Master Sample for the Otago region with a similar sample size to
+automatic sharing of resources. Below shows an example of generating a sample using the Master Sample for the Southland region with a similar sample size to
 the 8-km grid. Of note, the Master Sample can be combined with the 8-km grid for estimation as both are unbiased area proportional samples, and this has been shown by simulation [@bates2018].
 Using the Master Sample ensures that objective probabilistic monitoring takes places that integrates with future DOC monitoring work and the existing NBMP. In fact, the Master Sample used on PCL explicitly integrates the 8-km grid into any new monitoring programmes.
 
-![Otago Region Example of the Master Sample matching sample size as the 8-km grid.](images/MSOtago.png)
+![Southland Region Example of the Master Sample matching sample size as the 8-km grid.](images/MSSouthland.png)
 
 ## Objectives
 
@@ -206,8 +207,53 @@ it is an ongoing research project to finalize the best approach for sampling the
 Comparison of design using grid vs master sample
 
 
-## Hawkes Bay
+## Horizons Regional Council
 
-SOE monitoring with intensification for management purposes
+Landcare Research developed a possom monitoring plan on behalf of Horizons Regional Council (Horizons) to inform on approximately 1.2 million hectares of 
+area that is managed for possums. The region is broken into Possum Control Operations (PCO) which are selected for management, see Figure 2. The primary monitoring 
+objectives stated are [@gormleywarburton] 
+
+* "Whether the PCO programme is achieving its aim of maintaining possum populations below a specified target within possum habitat across the region."
+* "The likelihood that the possum density in each PCO is being maintained below a specified target."
+
+In this case it is important that the monitoring plan informs at both a regional and PCO level to address the overall success of management against
+the success of an operation. A stratified random design using the PCOs was recommended with non-overlapping rotating panels. The PCO is treated as the sampling unit 
+and transects are repeated within selected PCOs in order to get a reliable PCO estimate. There is a resource trade-off between sampling effort within a likely 
+somewhat heterogeneous PCO and across the entire region which will improve regional level estimates but may not inform directly on the success of a particular 
+operation. Selected PCOs are stratified by the immigration pressure of possums into the area. Areas with high immigration pressure (n = 37 of 120 PCOs) make up 31% 
+of all PCOs. We will follow one of the proposed design options for this example shown in the table below. Stratification ensures that each year an even number of both high and
+low immigration PCOs are selected at roughly the proportion they make up of the sample. The non-overlapping panels define the time of remeasurement of each PCO which is on a 4
+year schedule such that after 8-years each PCO will have been monitored twice estimating trend across the population. Note, that this is an equivalent remeasurement method to 
+the NLM monitoring programme and that general trends with some variability can be estimated after several years and likely reliable trends before the 8-year period is completed.
+We will not show how systematic sampling will work for the proposed design as it will not at the 8-km intensity. Instead we will describe the design in the context
+of the New Zealand Master Sample.
+
+```{r tabpos, echo = FALSE, warning = FALSE}
+	tab.pos <- data.frame(Year = c(1:4, "Total"), `High Immigration` = c(9,9,9,10,37), `Low Immigration` = c(21, 21, 21, 20, 87), "Total" = c(30, 30, 30, 30, 120))
+	kable(tab.pos, col.names = c("Year", "High Immigration", "Low Immigration", "Total"), caption = "Design option that is proposed by @gormleywarburton.")
+```
+
+To implement the monitoring programme using the Master Sample we first sample the discrete PCO units by giving them 
+a spatially balanced order for selection using the Halton Frames defined by the bounding box and random seed of the Master Sample [@robertson2018]. 
+Once we order the PCOs the first 9 high immigration PCOs become the year 1 selected PCOs and the next 10-19 become year 2 etc. until all PCOs are 
+selected and given a sampling year. Within each PCO we then select 20 different sites using the Master Sample. In essence, this is how the design described by 
+@gormleywarburton would be implemented using the Master Sample. 
+
+Figures 3 and 4 show the panel designs based on selection using the Halton Frames and the Master Sample followed by an example
+PCO (Mt Stewart) with 20 sites selected within. Note that the site selected is the beginning of a possum line that would start at a random
+bearing away from the starting point. Each individual site is numbered based on the order of the Master Sample. The results is a reasonably 
+well spread sample with each PCO as well as between PCOs on an annual basis. If sites are inaccessible or mistargets, the ordering of the Master
+Sample can be used to add new sites that maintain good spatial spread in the area.
+
+![Each year of PCOs that would be selected under the example monitoring programme.](images/HorizonsDesign.png)
+
+![An example of Mt Stewart PCO monitoring sites selected.](images/HorizonsExampleSites.png)
+
+Although this design doesn't appear any different than what is proposed in by @gormleywarburton as far as selection of PCO or sites within,
+it is an important illustration that the Master Sample is flexible to adapt to any spatial site selection providing a potentially more
+efficient design through spatial balance. The largest benefit of implementing the Master Sample here instead of a simple random sample or
+a local spatially balanced sample is that sites are inherently matched through their unique ordering and therefore effort can be shared between monitoring
+programmes and it can help Regional Councils work together. The intention of the Master Sample is to be flexible for any needs for terrestrial spatial surveys
+but most importantly to help coordinate (improve efficiency) of monitoring across New Zealand.
 
 #References{-}
