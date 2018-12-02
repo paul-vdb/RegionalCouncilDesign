@@ -1,13 +1,17 @@
-Regional Council,Non-PCL,PCL
-Canterbury,440,172
-Gisborne,186,34
-Hawkes Bay,164,20
-Marlborough,100,72
-Nelson,72,222
-North Auckland,255,35
-Otago,427,139
-South Auckland,433,82
-Southland,233,261
-Taranaki,112,40
-Wellington,359,79
-Westland,35,206
+"name","0","1"
+"Auckland Region",70,5
+"Bay of Plenty Region",156,41
+"Canterbury Region",505,207
+"Gisborne Region",122,9
+"Hawke's Bay Region",187,31
+"Manawatu-Wanganui Region",288,61
+"Marlborough Region",84,75
+"Nelson Region",5,2
+"Northland Region",172,30
+"Otago Region",398,99
+"Southland Region",216,279
+"Taranaki Region",89,26
+"Tasman Region",50,103
+"Waikato Region",323,62
+"Wellington Region",102,25
+"West Coast Region",49,307
