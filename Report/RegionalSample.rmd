@@ -217,7 +217,6 @@ In this case study the benefit of using the Master Sample over the 8-km grid is 
 2. Regional monitoring of status and trend contributes explicitly to monitoring of intensively managed sites.
 3. The Master Sample can be used to intensify regional status and trend monitoring in sites of specific interest.
 
-
 ## Horizons Regional Council
 
 Landcare Research developed a possum monitoring plan on behalf of Horizons Regional Council (Horizons) to inform on approximately 1.2 million hectares of 
