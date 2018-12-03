@@ -88,11 +88,11 @@ tab <- read.csv("data/Table.csv")
 names(tab) <- c("Region", "Off-PCL", "On-PCL")
 tab <- rbind(tab, data.frame(Region = "Total", "Off-PCL" = sum(tab["Off-PCL"]), "On-PCL" = sum(tab["On-PCL"]), check.names = FALSE))
 tab$Total <- rowSums(tab[,2:3])
-kable(tab, caption = "Number of sample locations on the 8-km grid by PCL/non-PCL.")
+kable(tab, caption = "Number of sample locations on the 8-km grid by PCL/non-PCL.", booktabs = TRUE)
 ```
 
 
-```{r fig1,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="Southland Region Example of the 8-km grid which yields 494 sites."}
+```{r fig1,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="Southland Region Example of the 8-km grid which yields 494 sites.", fig.height=7, fig.width=7}
 
 knitr::include_graphics("images/Tier1Southland.png")
 
@@ -101,7 +101,7 @@ knitr::include_graphics("images/Tier1Southland.png")
 
 <!-- ![Southland Region Example of the 8-km grid which yields 494 sites.](images/Tier1Southland.png) -->
 
-```{r fig2,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="Southland Region Example of the Master Sample matching sample size as the 8-km grid."}
+```{r fig2,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="Southland Region Example of the Master Sample matching sample size as the 8-km grid.",fig.height=7, fig.width=7}
 
 knitr::include_graphics("images/MSSouthland.png")
 
@@ -210,7 +210,7 @@ it is an ongoing research project to finalize the best approach for sampling the
 
 ## Southland
 
-There are 233 sample locations from the 8-km grid occurring off PCL in the Southland region (Table \@ref(tab:tab1)). Given no resource constraints implementation of monitoring at each of these sample locations would be optimal for monitoring and reporting status and trend for the Southland Region and integrating seamlessly with DOC's NBMP. We recognise that resource constaints are a major impediment to uptake of aligned monitoring for many partner agencies, including Southland Regional Council. In order to scale sample size to match resource constraints using systematic sampling approaches the 8-km grid could be reduced to a 16 or 32-km grid, this would reduce the sample size in the Southland Region from 233 to 116 and 58 respectively. Using the Master Sample to derive sample locations for the Southland Region is conceptually simpler and more flexible than scaling a systematic sample based on the 8-km grid. Simply use all of the Southland region not covered by PCL and apply the Master Sample to derive **N** sample locations. Additionally, site specific monitoring can be derived from the Master Sample. This means sample locations for regional status and trend monitoring overlapping with intensively managed sites can contribute to site specific estimates of monitored parameters. If more (or less) sample locations are needed in the future this can be easily accommodated without compromising the initial sample locations implemented from the Master Sample.
+There are 216 sample locations from the 8-km grid occurring off PCL in the Southland region (Table \@ref(tab:tab1)). Given no resource constraints implementation of monitoring at each of these sample locations would be optimal for monitoring and reporting status and trend for the Southland Region and integrating seamlessly with DOC's NBMP. We recognise that resource constaints are a major impediment to uptake of aligned monitoring for many partner agencies, including Southland Regional Council. In order to scale sample size to match resource constraints using systematic sampling approaches the 8-km grid could be reduced to a 16 or 32-km grid, this would reduce the sample size in the Southland Region from 216 to 108 and 54 respectively. Using the Master Sample to derive sample locations for the Southland Region is conceptually simpler and more flexible than scaling a systematic sample based on the 8-km grid. Simply use all of the Southland region not covered by PCL and apply the Master Sample to derive **N** sample locations. Additionally, site specific monitoring can be derived from the Master Sample. This means sample locations for regional status and trend monitoring overlapping with intensively managed sites can contribute to site specific estimates of monitored parameters. If more (or less) sample locations are needed in the future this can be easily accommodated without compromising the initial sample locations implemented from the Master Sample.
 
 In this case study the benefit of using the Master Sample over the 8-km grid is that; 
 
@@ -241,7 +241,7 @@ of the New Zealand Master Sample.
 
 ```{r tabpos, echo = FALSE, warning = FALSE}
 	tab.pos <- data.frame(Year = c(1:4, "Total"), `High Immigration` = c(9,9,9,10,37), `Low Immigration` = c(21, 21, 21, 20, 87), "Total" = c(30, 30, 30, 30, 120))
-	kable(tab.pos, col.names = c("Year", "High Immigration", "Low Immigration", "Total"), caption = "Design option that is proposed by @gormleywarburton.")
+	kable(tab.pos, col.names = c("Year", "High Immigration", "Low Immigration", "Total"), caption = "Design option that is proposed by @gormleywarburton.", booktabs = TRUE)
 ```
 
 To implement the monitoring programme using the Master Sample we first sample the discrete PCO units by giving them 
