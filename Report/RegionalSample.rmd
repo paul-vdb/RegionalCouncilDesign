@@ -17,16 +17,16 @@ header-includes:
 - \ThisULCornerWallPaper{1}{{`r DocRR::Lake()`}}
 output:
 #------------If wanting word  or html  versions uncomment either one below--------#
-  bookdown::word_document2: default 
+  # bookdown::word_document2: default 
   # html_document: default
 #-------Make sure to comment out everything below if using word or html above-----#
-  # bookdown::pdf_document2:
-    # keep_tex: false #Only have true if you want to keep the latex file produced
-    # latex_engine: xelatex #Has to be xelatex to use Archer fonts
-    # template: doc_article.tex #Don't change this!!!
-    # toc: false  #include table of contents
-    # toc_depth: 1 #specify the depth of the table of contents
-    # number_sections: true #specify whether or not to add numbered sections
+  bookdown::pdf_document2:
+    keep_tex: false #Only have true if you want to keep the latex file produced
+    latex_engine: xelatex #Has to be xelatex to use Archer fonts
+    template: doc_article.tex #Don't change this!!!
+    toc: false  #include table of contents
+    toc_depth: 1 #specify the depth of the table of contents
+    number_sections: true #specify whether or not to add numbered sections
 ---
 
 ```{r setup, include=FALSE}
@@ -36,14 +36,15 @@ knitr::opts_knit$set(root.dir = NULL)
 
 ```{r DontRun, include=FALSE, eval = FALSE}
 library(rmarkdown)
+library(bookdown)
 library(DocRR)
 library(knitr)
-# setwd("C:/Users/Paul/Documents/Department of Conservation/Regional Councils/RegionalCouncilDesign/Report")
-# # render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.pdf")
+setwd("C:/Users/Paul/Documents/Department of Conservation/Regional Councils/RegionalCouncilDesign/Report")
+render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.pdf")
 # render("RegionalSample.Rmd", output_file = "RegionalSample.docx")
 ```
 
-# Introduction{-}
+## Introduction{-}
 
 The Department of Conservation (DOC) has developed a National Level Monitoring (NLM) Programme using an
 8-km grid at over 1,400 monitoring sites on Public Conservation Land (PCL). The NLM programme focuses on status and trend monitoring at the national scale for key indicators of ecological integrity. This allows DOC to make statistically valid inference over all of PCL. 
@@ -52,7 +53,7 @@ Regional councils are responsible for managing biodiversity off PCL within their
 
 DOC has continued to developed tools and frameworks to support standardised, well designed and coordinated environmental monitoring within DOC. We believe regional councils would benefit from these developments with the view to establishing a coordinated, adaptable and fit-for-purpose approach to monitoring ecological integrity and the effectiveness of biodiversity management in New Zealand. 
 
-## Principles of monitoring {-}
+## Principles of monitoring{-}
 
 For a monitoring programme to be successful it is important to provide clear, detailed documentation of the design decisions made. We recommend following the approach described in @reynolds2016road to work through the design decision making process. Articulating clear and achievable objectives is critical and drives all of the design decisions that follow. For example, to report on the state of the environment (SOE) would lead to "status and trend" monitoring. Status and trend monitoring may allow for inference about ecological integrity across an area but will not give information about management success in a particular region. If a specific monitoring action is undertaken and we are interested in measuring its success, we would undertake "effectiveness monitoring". Effectiveness monitoring may result in choosing a BACI (Before-After Control-Impact) design. The objectives decide what is measured, where it is measured and how frequently to return. Without clear objectives a monitoring problem will not likely be successful and can be a waste of resources if it fails to provided management and stakeholders without useful information.
 
@@ -121,7 +122,7 @@ Objectives drive monitoring programme design. For the purposes of this document 
 
 This document describes an approach for biodiversity monitoring for regional councils. It builds on developments made by DOC building a monitoring and reporting system. We will present a recommended approach for monitoring which meets the objectives stated above. We will demonstrate the approach through the use of scenarios in different regions. 
 
-# Recommended monitoring design for regional councils{-}
+## Recommended monitoring design for regional councils{-}
 
 In order to integrate monitoring between the Regional Councils and DOC we recommend implementing the New Zealand Master Sample [@bates2018]. This document compares
 and contrasts the advantages of the Master Sample over adopting the 8-km grid for Regional Councils who manage diverse ecosystems mixed with 
