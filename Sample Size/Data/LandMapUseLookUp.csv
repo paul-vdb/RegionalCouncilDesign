@@ -1,0 +1,13 @@
+﻿LUC_NAME,Level,Tier1
+Cropland - Annual,Impacted,0
+Cropland - Perennial,Impacted,0
+Grassland - High producing,Impacted,0
+Grassland - Low producing,Native,1
+Grassland - With woody biomass,Native,1
+Natural Forest,Native,1
+Other,Native,1
+Planted Forest - Pre-1990 ,Native,1
+Post 1989 Forest,Native,1
+Settlements,Impacted,0
+Wetland - Open water,Native,1
+Wetland - Vegetated non forest,Native,1
