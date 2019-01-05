@@ -1,6 +1,6 @@
 ---
 title: \vspace{1cm} \LARGE Regional Council Sample Design
-subtitle: \large Proof of Concept
+subtitle: \large Proof of Concept for State of the Environment Monitoring
 author: \mycolor \newline Planning, Monitoring and Reporting
 date: \mycolor `r format(Sys.Date(),"%B %Y")`
 documentclass: article
@@ -44,32 +44,144 @@ render("RegionalSample.Rmd", output_file = "Regional_Monitoring_ProofOfConcept.p
 # render("RegionalSample.Rmd", output_file = "RegionalSample.docx")
 ```
 
+## Executive Summary{-}
+
+* The Department of Conservation has developed a Master Sample for biodiversity monitoring across all of New Zealand. A Master Sample explicitly coordinates monitoring by 
+ensuring the scalability and combination of effort across spatial scales as well as explicitly keeping track of sampling effort to allow reduced costs when sampling areas and
+objectives overlap. The sample itself is created from Balanced Acceptance Sampling (BAS) which is a modern spatially balanced design which combines the benefits of both systematic
+sampling and simple random sampling.
+
+* The Master Sample approach can both augment the existing 8-km systematic grid or should be considered for future monitoring designs where the grid may not be practical. 
+@bates2018 showed that combining data from the 8-km grid and the Master Sample does not negatively impact the overall inference about the population. This is for both sample augmentation
+when intensifying sampling effort from State of the Environment to management effectiveness monitoring, as well as for contiguous regions where one may implement the 8-km grid and then 
+collaborate with a neighbouring region that implemented the Master Sample.
+
+* We propose that due to the heterogeneity of forests in New Zealand and the homogeneity of croplands that make up a large portion of Regional Council lands that stratification could
+be implemented to decrease cost while not negatively impacting the overall inference for State of the Environment reporting. Using the Master Sample is flexible and can be tailored to the
+needs of the individual council and their landscape while the systematic sample is much more rigid. For example, Southland Regional Council implementing the 8-km grid would need to 
+monitor 218 sites. Using stratification for croplands and other areas that are highly impacted by human use, we would recommend a sample size of 165, 53 fewer sites. This is considering
+that for all forest and native habitat the 8-km grid sampling intensity is maintained as it has been proven to work.
+
+
 ## Introduction{-}
 
-The Department of Conservation (DOC) has developed a National Level Monitoring (NLM) Programme using an
-8-km grid at over 1,400 monitoring sites on Public Conservation Land (PCL). The NLM programme focuses on status and trend monitoring at the national scale for key indicators of ecological integrity. This allows DOC to make statistically valid inference over all of PCL. 
+The Department of Conservation (DOC) has developed a National Level Monitoring (NLM) Programme as part of 
+the National Biodiversity Monitoring Programme (NBMP) system, using an
+8-km grid at over 1,400 monitoring sites on Public Conservation Land (PCL). The NLM programme focuses on status and 
+trend monitoring at the national scale for key indicators of ecological integrity. 
+This allows DOC to make statistically valid inference across the entire PCL and report on the State of the Environment (SOE). 
 
-Regional councils are responsible for managing biodiversity off PCL within their territorial boundaries. Regional councils have adopted an aligned indicator framework for reporting on ecological integrity and aligned monitoring programmes have been implemented off PCL by Greater Wellington Regional Council (GWRC) and Auckland Council (AC). Considerable effort has gone into aligning monitoring efforts between agencies. The Environmental Monitoring and Reporting group (EMAR) has been established to align environmental monitoring and reporting efforts between central and local/regional government. 
+Regional councils are responsible for managing biodiversity off PCL within their territorial boundaries. 
+Regional councils have adopted an indicator framework for reporting on ecological integrity aligned with DOC and the NLM.
+Monitoring programmes have been implemented off PCL by Greater Wellington Regional Council (GWRC) and Auckland Council (AC). 
+Considerable effort has gone into collaborating monitoring between agencies. The Environmental Monitoring and Reporting group (EMAR) 
+has been established to coordinate environmental monitoring and reporting efforts between central and local/regional government. 
 
-DOC has continued to developed tools and frameworks to support standardised, well designed and coordinated environmental monitoring within DOC. We believe regional councils would benefit from these developments with the view to establishing a coordinated, adaptable and fit-for-purpose approach to monitoring ecological integrity and the effectiveness of biodiversity management in New Zealand. 
+DOC has continued to developed tools and frameworks to support standardised, well designed and coordinated environmental monitoring within New Zealand. 
+We believe regional councils would benefit from these developments with the view to establishing a coordinated, adaptable and fit-for-purpose 
+approach to monitoring ecological integrity and the effectiveness of biodiversity management in New Zealand. @bates2018 established the rigorous design
+methods for coordinated terrestrial monitoring in New Zealand. The purpose of this document is to introduce the Master Sample [@bates2018] 
+in the context of Regional Council SOE monitoring and reporting along with basic design principles to understand the benefits of integrating monitoring between
+DOC and each Regional Council.
+
 
 ## Principles of monitoring{-}
 
-For a monitoring programme to be successful it is important to provide clear, detailed documentation of the design decisions made. We recommend following the approach described in @reynolds2016road to work through the design decision making process. Articulating clear and achievable objectives is critical and drives all of the design decisions that follow. For example, to report on the state of the environment (SOE) would lead to "status and trend" monitoring. Status and trend monitoring may allow for inference about ecological integrity across an area but will not give information about management success in a particular region. If a specific monitoring action is undertaken and we are interested in measuring its success, we would undertake "effectiveness monitoring". Effectiveness monitoring may result in choosing a BACI (Before-After Control-Impact) design. The objectives decide what is measured, where it is measured and how frequently to return. Without clear objectives a monitoring problem will not likely be successful and can be a waste of resources if it fails to provided management and stakeholders without useful information.
+For a monitoring programme to be successful it is important to provide clear, detailed documentation of the design decisions made. 
+We recommend following the approach described in @reynolds2016road to work through the design decision making process. 
+Articulating clear and achievable objectives is critical and drives all of the design decisions that follow. To report on SOE similar to NLM,
+we define it as "status and trend" monitoring focussing on large spatial scales (the entire region) and long-term trends (5-10 years).
+Status and trend monitoring may allow for inference about ecological integrity across an area but will not necessarily give information about 
+short-term management effectiveness in a particular area unless there is a very significant response in the population. 
+If a specific monitoring action is undertaken and we are interested in measuring its 
+success, we would undertake "effectiveness monitoring". Effectiveness monitoring may result in choosing a BACI (Before-After Control-Impact) design. 
+The objectives decide what is measured, where it is measured and how frequently to return. Without clear objectives a monitoring programme will not 
+likely be successful and can be a waste of resources if it fails to provide management and stakeholders useful information.
 
-Based on the objectives, conceptual models are used to apply expert knowledge and develop the required indicators and measures that are needed to report back on. The indicators and measures that are reported on will identify the target population and sample frame. The target population is defined as the population or resource of interest (e.g. all native forest in the region). The sample frame is a spatial representation of the target population (e.g. the best spatial information available representing native forests in the region). Once the target population and sample frame are defined it is important to account for any logistical constraints (such as accessibility and safe conditions for field crews) as not all areas can be visited safely. A clear definition of the sample frame is important to ensure that the scope of inference is understood. Steep unsafe areas that are not able to be sampled may exclude unique habitats from the sample.
+Based on the objectives, conceptual models are used to apply expert knowledge and develop the required indicators and measures that are needed to report 
+back on. The indicators and measures that are reported on will identify the target population and sample frame. The target population is defined as the 
+population or resource of interest (e.g. all native forest in the region). The sample frame is a spatial representation of the target population (e.g. the best spatial information available representing 
+native forests in the region). Once the target population and sample frame are defined it is important to account for any logistical constraints (such as accessibility and safe conditions for field crews) as not all areas can be visited safely. A clear definition of the sample frame is important to ensure that the scope of inference is understood. Steep unsafe areas that are not able to be sampled may exclude unique habitats from the sample.
 
-Following choosing what to measure and where it should be measured, sample size and sites needs to determined. Sample size needs reflect the objectives and should be informed on the variability thought to occur in the population being measured. If we suspect biodiversity is reasonably consistent for bird communities on pastures in the Canterbury Plains, then a smaller amount of sampling may be required than when monitoring birds in regenerating native forest. Sampling locations should be drawn to provide an unbiased representation of the population of interest within the sample frame. A probabilistic sample ensures that the sample represents the population as a whole. Convenience or judgement sampling generally does not allow for inference over the entire population. 
+After choosing what to measure and where it should be measured, sample size/site selecion is undertaken. Sample size should reflect the objectives 
+and should be informed on the variability thought to occur in the population being measured. If we suspect biodiversity is reasonably consistent for bird 
+communities on pastures in the Canterbury Plains, then a smaller amount of sampling may be required than when monitoring birds in regenerating native 
+forest. Sampling locations should be drawn to provide an unbiased representation of the population of interest within the sample frame. 
+A probabilistic sample ensures that the sample represents the population as a whole. Convenience or judgement sampling generally does not allow 
+for inference over the entire population.
 
-## Existing monitoring{-}
+## Objectives{-}
 
-The National Biodiversity Monitoring Programme (NBMP) is a systematic sample spread across New Zealand on an 8-km grid with a random start.It builds on the Land Use Carbon Analysis System (LUCAS) forest monitoring programme described by @coomes2002designing. With systematic sampling, effort is proportional to area. Including a random start makes the NBMP a probabilistic sample. This ensures sites are well spread across space. For sampling large regular areas, such as PCL, systematic sampling is very efficient. The spread of effort
-improves precision over simple random sampling any time there are strong spatial trends in the population. In the rare case that there is a periodic trend in the population that matches the grid, the sampling can be biased. 
-There are roughly 1,400 sites on the 8-km grid that are currently monitored for ecological integrity on PCL. Each year, 20% of the sites (randomly selected) are 
-monitored on a non-overlapping rotating schedule. Monitoring in this way puts emphasis on capturing spatial variability over short-term trends. The programme captures long-term trends in ecological integrity through repeated sampling every 5-years. The 8-km grid exists across all of New Zealand and can be extended to Regional Council land, for example Greater Wellington Regional Council. For Nelson or Westland, the largest proportion of Regional Council sites on the 8-km grid are on PCL and monitored as part of NBMP. In other extremes, such as Otago (427 sites off of PCL and 139 on PCL), a large number of grid sites are not on PCL. See Table \@ref(tab:tab1) for the number of sites on and off PCL for each region. Figure \@ref(fig:fig1) shows the 8-km grid for the Southland region which
-is more balanced with 47% of the 8-km grid occurring off of PCL.
+Regional councils have statutory responsibilities for monitoring the SOE and the effectiveness of policies and rules on the maintenance of indigenous biodiversity.
 
-Although systematic samples are not very flexible, the 8-km grid is very effective for monitoring biodiversity on a large scale. However, the 8-km grid would not be fit-for-purpose for monitoring of fragmented ecosystems with variable areas spread over a broad spatial extent. To facilitate monitoring of management effectiveness DOC has developed a flexible, adaptive approach to monitoring design based on what is known as a Master Sample. A master
+For the purposes of this document we assume the main objective
+
+1. To provide unbiased assessment of the SOE based on indicators from the regional council indicator framework.
+
+However, the framework provided allows for integrating effectiveness monitoring into existing SOE monitoring
+
+2. To determine the effectiveness of policy and management interventions. 
+
+## Recommended Monitoring Design for Regional Councils{-}
+
+In order to integrate monitoring between the Regional Councils and DOC we recommend implementing the New Zealand Master Sample [@bates2018]. A Master Sample
+is a large number of sampling locations which have shared properties such that subsamples explicitly accomodate coordination on multiple spatial scales. 
+This document compares and contrasts the advantages of the Master Sample over adopting the 8-km grid for Regional Councils who manage diverse ecosystems mixed with 
+protected habitats, industry and urban areas. We describe the two designs in the context of the sampling requirements
+
+* Stratification (Forest, Urban, Pasture)
+* Multiple Spatial Scales
+* Adaptability (inaccessible sites, changing resources etc.)
+* Incorporate legacy monitoring
+* Coordination between MfE and DOC (LUCAS and NLM (formerly known as Tier 1))
+
+As mentioned in the objectives, the Master Sample approach is flexible enough to be intensified locally for effectiveness monitoring. 
+
+## New Zealand Master Sample{-}
+
+The New Zealand Master Sample was developed by the Department of Conservation [@bates2018] in order to augment existing national level 
+programs for the purpose of monitoring management effectiveness at multiple spatial scales. The main benefit of a Master Sample is that it helps
+coordinate monitoring between agencies. To start, DOC needed to integrate monitoring effort between district, regional and national
+offices. The Master Sample covers all of New Zealand and can be used to coordinate monitoring effort not just within DOC but between DOC and other 
+agencies such as Regional Councils or MfE. When all agencies are designing rigorous monitoring programmes, the data can be aggregated with low risk
+of bias if the survey methodology is taken into account. However, it is a difficult task to make aggregate data from disjoint surveys with unknown scales
+of inference and often uncertain probabilistic/judgement samples. The Master Sample takes care of this because it ensures that the agencies
+are using consistent methodology at each spatial scale which allows for larger scale unbiased inference making use of local monitoring programmes. The
+ordered numbered samples make it explicit for effort to be shared between agencies with overlapping spatial extents to monitor. That way the two agencies
+can work together to sample the area sharing resources and saving money. The Master Sample facilitates coordination but is only a set of sites to choose
+a sample from. For it to be implemented the agencies themselves need to communicate about their monitoring programmes. See the Pacific Northwest Aquatic 
+Monitoring Partnership (https://www.pnamp.org/static-page/what-tools-do-we-offer) for an example of a Master Sample used for coordinate freshwater monitoring
+in Washington State.
+
+The New Zealand Master Sample is simply a Balanced Acceptance Sample (BAS) [@robertson2013bas] applied to the entire country. BAS is a spatially balanced sampling technique 
+developed by the University of Canterbury that spreads effort systematically across space generating an infinite number of sites. This means that for any region/spatial scale 
+the BAS sample provides a sufficient number of sites. For this reason, it is flexible for any spatial sample that is required by the objectives whether a 
+BACI design, or some form of clustered sampling. A BAS sample has an ordering from 1 to infinity. Sites must be visited based on this ordering 
+which is how the Master Sample coordinates sampling explicitly from the design side. As mentioned above, if regions overlap then sites can be shared based on this ordering
+which maintains an overall BAS sample within and across the sampling areas. Figure \@ref(fig:tasman) shows how the Master Sample can be used to explicitly
+coordinate monitoring for DOC at multiple spatial scales as well as augment the 8-km grid.
+
+```{r tasman,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="Example using the Master Sample from @bates2018 for Abel Tasman National Park combining National Level Monitoring (Tier 1), Sites from Tier 2 National Master Sample, and a local monitoring programme.", fig.height=7, fig.width=7}
+knitr::include_graphics("images/Tasman-eps-converted-to.pdf")
+```
+
+## Existing Monitoring Programmes{-}
+
+The NLM is a systematic sample spread across New Zealand on an 8-km grid with a random start. 
+It builds on the Land Use Carbon Analysis System (LUCAS) forest monitoring programme described by @coomes2002designing. With systematic sampling, 
+effort is proportional to area. Including a random start makes the NLM a probabilistic sample. This ensures sites are well spread across space
+and representative of the entire PCL. The spread of effort improves precision over simple random sampling any time there are strong spatial trends 
+in the population. In the rare case that there is a periodic trend in the population that matches the grid, the sampling can be biased. 
+There are roughly 1,400 sites on the 8-km grid that are currently monitored for ecological integrity on PCL. Each year, 20% of the sites (randomly selected) 
+are monitored on a non-overlapping rotating schedule. Monitoring in this way puts emphasis on capturing spatial variability versus short-term trends. 
+The programme captures long-term trends in ecological integrity through repeated sampling every 5-years. The 8-km grid exists across all of 
+New Zealand and has been extended to selected Regional Council land, such as GWRC. For the West Coast Region (84% PCL), the largest proportion of Regional Council 
+sites on the 8-km grid are on PCL and monitored as part of NLM. In other extremes, such as Otago (497 sites off of PCL and 92 on PCL), a large number 
+of grid sites are not on PCL. See Table \@ref(tab:tab1) for the number of sites on and off PCL for each region. Figure 2 shows the 8-km 
+grid for the Southland region which is more balanced with 47% of the 8-km grid occurring off of PCL.
+
+Although systematic samples are not very flexible, the 8-km grid is very effective for monitoring biodiversity on a large scale. However, the 8-km grid would not be fit-for-purpose for monitoring of fragmented ecosystems with 
+variable areas spread over a broad spatial extent. To facilitate monitoring of management effectiveness DOC has developed a flexible, adaptive approach to monitoring design based on what is known as a Master Sample. A master
 sample consists of a large number of sites which can be sub-sampled for a variety of different monitoring programmes. Master Samples are used to coordinate
 monitoring between different organizations and have been implemented in the United State (Washington, Oregon and Alaska) as well as Western Canada. Specifically,
 the New Zealand Master Sample is a spatially balanced sample with a hierarchical order generated using Balanced Acceptance Sampling (BAS) [@bates2018]. Although spatial spread
@@ -81,98 +193,71 @@ the 8-km grid. Of note, the Master Sample can be combined with the 8-km grid for
 Using the Master Sample ensures that objective probabilistic monitoring takes places that integrates with future DOC monitoring work and the existing National
 Biodiversity Monitoring Programme. In fact, the Master Sample used on PCL explicitly integrates the 8-km grid into any new monitoring programmes.
 
-
 ```{r tab1, echo = FALSE, warning = FALSE}
-library(knitr)
-tab <- read.csv("data/Table.csv")
-names(tab) <- c("Region", "Off-PCL", "On-PCL")
-tab <- rbind(tab, data.frame(Region = "Total", "Off-PCL" = sum(tab["Off-PCL"]), "On-PCL" = sum(tab["On-PCL"]), check.names = FALSE))
-tab$Total <- rowSums(tab[,2:3])
-kable(tab, caption = "Number of sample locations on the 8-km grid by PCL/non-PCL.", booktabs = TRUE)
+	tab <- read.csv("../Sample Size/Data/SampleSizeGridTable.csv")
+	names(tab) <- c("Region", "Native", "Native On-PCL", "Impacted Off-PCL", "Total")
+	kable(tab, caption = "Number of sample locations on the 8-km grid by PCL/non-PCL where Impacted is defined by LUCAS Land Map as Cropland, High producing grassland and Settlements.", booktabs = TRUE)
 ```
 
-
-```{r fig1,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="Southland Region Example of the 8-km grid which yields 494 sites.", fig.height=7, fig.width=7}
-
-knitr::include_graphics("images/Tier1Southland.png")
-
-```
-
-
-<!-- ![Southland Region Example of the 8-km grid which yields 494 sites.](images/Tier1Southland.png) -->
-
-```{r fig2,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="Southland Region Example of the Master Sample matching sample size as the 8-km grid.",fig.height=7, fig.width=7}
-
-knitr::include_graphics("images/MSSouthland.png")
-
-```
-
-
-<!-- ![Southland Region Example of the Master Sample matching sample size as the 8-km grid.](images/MSSouthland.png) -->
-
-## Objectives{-}
-
-Regional councils have statutory responsibilities for monitoring the state of the environment (SOE) and the effectiveness of policies and rules on the maintenance of indigenous biodiversity.
-
-Objectives drive monitoring programme design. For the purposes of this document we assume 2 main objectives for regional council biodiversity monitoring. 
-
-1. To provide unbiased assessment of the SOE based on indicators from the regional council indicator framework.
-
-2. To determine the effectiveness of policy and management interventions. 
-
-This document describes an approach for biodiversity monitoring for regional councils. It builds on developments made by DOC building a monitoring and reporting system. We will present a recommended approach for monitoring which meets the objectives stated above. We will demonstrate the approach through the use of scenarios in different regions. 
-
-## Recommended monitoring design for regional councils{-}
-
-In order to integrate monitoring between the Regional Councils and DOC we recommend implementing the New Zealand Master Sample [@bates2018]. This document compares
-and contrasts the advantages of the Master Sample over adopting the 8-km grid for Regional Councils who manage diverse ecosystems mixed with 
-protected habitats, industry and urban areas. We describe the two designs in the context of the sampling requirements
-
-* Stratification (Forest, Urban, Pasture)
-* Multiple Spatial Scales
-* Adaptability (inaccessible sites, changing resources etc.)
-* Incorporate legacy monitoring
-* Coordination between MfE and DOC.
+![Southland Region Example of the 8-km grid which yields 495 sites, 277 of which are monitored by the NLM on PCL, and 218 which Southland Regional Council would be responsible for.](images/Tier1Southland.png)
 
 ## Stratification{-}
 
 Regional Councils are specifically interested in monitoring all non-PCL in their area, which consist of a diverse matrix of ecosystems and land use types.
 Stratification is a powerful tool to improve precision of a sample by focusing more effort in areas that are more variable. 
-For instance, native forest will likely be variable across the landscape for bird diversity than pasture. A bird monitoring programme that proportionally over represents
+For instance, native forest will likely be variable across the landscape for bird diversity or plant communities than pasture. A bird monitoring programme that proportionally over represents
 forest and under represents pasture will improve precision over a programme with the same sample size but ignoring the difference. Using area proportional sampling, pasture 
-would inherently get a larger number of sites selected than is optimal for making inference on both pasture and native forest. In this case, stratification would improve the precision of 
+would inherently get a larger number of sites selected than is optimal for making inference on both pasture and native forest. In this case, stratification can improve the precision of 
 the estimate for the entire region.
 
 Systematic sampling such as the 8-km grid can stratified by changing the grid size in each region. For example, pasture could be sampled every 10-km while native forest every 6-km.
-While in theory this would be okay, in practice it may perform poorly as the native forest may be patchy and surrounded by pasture. Depending on the landscape,
-achieving a feasible sample size for the two different stratum may be difficult. In addition to this, once the 8-km grid is deviated from it removes the explicit integration with
-DOC's existing national programme, which would be the basis for using systematic sampling over a more modern flexible sample method in the first place. Choosing grid size of 4-km and 16-km would allow for the continued integration of the 8-km grid with intensified, or reduced programmes but provide less flexibility to adjust sample effort. 
+Choosing grid size of 4-km and 16-km would allow for the continued integration of the 8-km grid with intensified, or reduced programmes but provide less 
+flexibility to adjust sample effort. The biggest issue here is the inflexbility of sytematic sampling to allow the addition or removal of several sites to be flexible to available resources.
+Depending on the landscape, achieving a feasible sample size for the two different stratum may be difficult. In addition to this, once the 8-km grid is deviated from it removes 
+the explicit integration with DOC (NLM) and MfE's (LUCAS) existing national programme, which would be the basis for using systematic sampling over a more modern flexible sample method in the first place. 
 
 Using the Master Sample to stratify is very simple. Choose the number of sites in each stratum and then select the first sites in each stratum based on their ordering. Any sample size
 can easily be achieved and any stratum, no matter how small area it is will have as many sample sites as required.
-Traditional statistical theory recommends that strata should be chosen that are constant through time (e.g. not subject to change). Using forest and non-forest can be an issue when some non-forested areas are recovering habitat and may at some point become defined as forested. The Master Sample is flexible to account for changing ecosystems to choose strata that are efficient but the spatial extent may need to be adapted in the long-term.
+Traditional statistical theory recommends that strata should be chosen that are constant through time (e.g. not subject to change). 
+Using forest and non-forest can be an issue when some non-forested areas are recovering habitat and may at some point become defined as forested. 
+The Master Sample is flexible to account for changing ecosystems to choose strata that are efficient but the spatial extent may need to be adapted in the long-term.
 
-## Adaptability{-}
+For the purpose of future examples in this document we examined which land use cover types do not occur on PCL based on the LUCAS 
+Land Use Map and defined two classes to consider for stratification. Impacted is the union of Settlements, Cropland - Annual, 
+Cropland - Perennial, and Grassland - High producing. Native is defined as the rest although it is not truly "native" as it incorporates planted forest and other
+introduced land covers. Table \@ref(tab:tab1) shows how many samples occur from the NLM programme on each of these types. Table \@ref(tab:tab2)
+breaks down what proportion of each Region is made up of each landcover defined here as a potential stratification layer.
 
-Heterogeneity in ecosystems/land cover means there are many sites which may be rejected due to lack of access to private land or the randomly selected site lands
-directly on top of a building. Objective, statistically robust methods must be set up to allow for establishing sites in feasible areas when the original sample 
-has to be rejected. The NBMP has strict rules to relocate sites from the 8-km grid randomly. The Master Sample has an explicit method
-using the hierarchical ordering to relocate sites that fail to fall onto accessible areas. If a site is rejected, a new site in order is available to replace it
-maintaining overall spatial balance. Instead of the user needing to re-establish the site randomly, they move down the list of available sites adding the new one and removing the missed site.
-The procedure is simple and requires nothing more than identifying that a site is not able to be sampled.
+```{r tab2, echo = FALSE, warning = FALSE}
+	tab2 <- read.csv("../Sample Size/Data/CoverTypesTable.csv")
+	names(tab2) <- c("Region", "Area (km^2)", "% PCL", "% Impacted", "% Native")
+	kable(tab2, caption = "Basic breakdown of each Region for PCL and the two stratification classes defined above based LUCAS Land Use Map.", booktabs = TRUE)
+```
 
-In the same sense, if a monitoring programme stratifies by forest, pasture, urban and other, then it is possible through new management regimes that the pasture is actively managed and moves from pasture to recovering shrub (other) and then finally to forest. These sites may have their own specific programme to monitoring progress of the reforestation. Otherwise, through the hierarchical ordering of the Master Sample, a new pasture site is established and then depending on the existing sites ordering it is either dropped from the sample or another site in the "other" category is dropped making space for the continued monitoring of this site.
+Choosing a sample size is frequently one of the most complicated parts of desiging a survey. We consider here that the NLM programme has been successful
+for SOE monitoring on the PCL. Based on this assumption, the sampling intensity of 8-km grid is considered adequate for Native habitat. We therefore
+only need to decide how much sampling effort is required for Impacted areas. 
 
-## Legacy Monitoring{-}
+There are many ways to choose sample size within each strata. Generally, we choose sample sizes that meet some requirement of precision based
+on the requirements set out in the objectives. We may use pilot data or expert opinion to inform how many locations to sample. In practical terms,
+a budget may be restrict the sample size prior to the deciding but this is risky if it doesn't resource monitoring properly. We had a look at bird data
+provided by GWRC, in particular Bellbird, Fantail, and Grey Warbler, to see how the different species varied on the two habitat classes. We observed that
+the standard deviation of these birds was roughly twice as large for Native habitats vs Impacted. Using the Neyman Allocation [@strata] we can assign
+a sample size for the Impacted region. For standard deviation $s_{Impacted} = 1$ and $s_{Native} = 2$ and $n_{Impacted}$ uknown but $n_{Native}$ equal to the number
+of 8-km grid sites on Native habitat in each council we can define the total sample size as
+$$
+	n = n_{Native}/(2 \times P_{Native}/(2 \times P_{Native} + 1 \times P_{Impacted})).
+$$
+$P_{Native}$ and $P_{Impacted}$ are the proportion of area in the Region are Native or Impacted. This result is intuitive because sample size depends on
+area (the 8-km grid) and heterogeneity (how much bush or farmland is in the Region). Table \@ref(tab:tab3) shows the estimated sample
+sizes in each region if we use the Master Sample and stratification. Note that for small Regions such as Nelson, sample sizes are too small to 
+be practical and some minimum sample sizes will be needed. Statistically 3 samples is the bare minimum but we would recommend 5.
 
-Often, there are existing monitoring networks that have historical information and/or are currently monitored. Incorporating these sites into
-new monitoring programmes improves estimation of trends and can reduce costs if the sites are already resourced. These legacy sites should be
-monitored using consistent methodologies and be sampled with some probability. Using the 8-km grid, legacy sites can be included if they fall within some
-set distance to a grid point. The grid point site can be replaced with the legacy site. This was implemented by the National Biodiversity Monitoring Programme. 
-In contrast, the Master Sample explicitly includes legacy monitoring. If legacy monitoring in an area is adequate, then no Master Sample site may even be used.
-The Master Sample is just used to augment sampling to ensure that as a whole the region is sampled at the intensity required by the programme. If a catchment
-has a historical program of 10 sites and that catchment makes up 10% of the monitoring area, then a area proportional number of those sites will be randomly selected
-to be included into the program and the Master Sample is then used to augment areas with no existing effort.
+```{r tab3, echo = FALSE, warning = FALSE}
+	tab3 <- read.csv("../Sample Size/Data/SampleSizeTable.csv")
+	names(tab3) <- c("Region", "Total Sample", "PCL", "Native RC", "Impacted RC", "Total RC")
+	kable(tab3, caption = "Rough sample size suggestions for SOE monitoring for different Regional Councils in New Zealand.", booktabs = TRUE)
+```
 
 ## Spatial Scales{-}
 
@@ -185,103 +270,104 @@ to the systematic design and are an overall improvement. The Master Sample is ab
 fact that it is dense (infinite sites at any scale) and has a hierarchical ordering to ensure that sites selected at the larger scale are matched with the localized monitoring
 reducing overall effort at the different spatial scales.
 
+## Legacy Monitoring{-}
+
+Often, there are existing monitoring networks that have historical information and/or are currently monitored. Incorporating these sites into
+new monitoring programmes improves estimation of trends and can reduce costs if the sites are already resourced. These legacy sites should be
+monitored using consistent methodologies and be sampled with some probability. Using the 8-km grid, legacy sites can be included if they fall within some
+set distance to a grid point. The grid point site can be replaced with the legacy site. This was implemented by the National Biodiversity Monitoring Programme. 
+In contrast, the Master Sample explicitly includes legacy monitoring. If legacy monitoring in an area is adequate, then no Master Sample site may even be used.
+The Master Sample is just used to augment sampling to ensure that as a whole the region is sampled at the intensity required by the programme. If a catchment
+has a historical program of 10 sites and that catchment makes up 10% of the monitoring area, then a area proportional number of those sites will be randomly selected
+to be included into the program and the Master Sample is then used to augment areas with no existing effort.
+
+## Adaptability{-}
+
+Heterogeneity in ecosystems/land cover means there are many sites which may be rejected due to lack of access to private land or the randomly selected site lands
+directly on top of a building. Objective, statistically robust methods must be set up to allow for establishing sites in feasible areas when the original sample 
+has to be rejected. The NBMP has strict rules to relocate sites from the 8-km grid randomly. The Master Sample has an explicit method
+using the hierarchical ordering to relocate sites that fail to fall onto accessible areas. If a site is rejected, a new site in order is available to replace it
+maintaining overall spatial balance. Instead of the user needing to re-establish the site randomly, they move down the list of available sites adding the new one 
+and removing the missed site. The procedure is simple and requires nothing more than identifying that a site is not able to be sampled.
+
+In the same sense, if a monitoring programme stratifies by forest, pasture, urban and other, then it is possible through new management regimes that the pasture is actively 
+managed and moves from pasture to recovering shrub (other) and then finally to forest. These sites may have their own specific programme to monitoring progress of the reforestation. 
+Otherwise, through the hierarchical ordering of the Master Sample, a new pasture site is established and then depending on the existing sites ordering it is either dropped from the 
+sample or another site in the "other" category is dropped making space for the continued monitoring of this site.
+
 ## Coordination{-}
 
 When the 8-km grid is effective and feasible for a regional council to implement then it is very easily coordinated with DOC and other monitoring programmes.
-This has been shown by Wellington Regional Council working with DOC to monitoring biodiversity on the 8-km grid. When more flexible monitoring is required, the 
-8-km grid no longer explicitly coordinates monitoring unless multiples of the grid sized are used. In this case intensifying the sample to a 4-km grid or reducing it
-to a 16-km grid still allows it to fit directly into the overall national grid. However, this either doubles or halves the sample size which may create unfeasible options.
-The Master Sample was created with the sole purpose of coordinating monitoring. It covers all terrestrial habitats in New Zealand and 
+This has been shown by Wellington Regional Council working with DOC to monitor biodiversity on the 8-km grid. The 8-km grid is the first part of any more localised monitoring
+on the PCL where the Master Sample and other legacy sites are used to augment/intensify sampling when monitoring for management purposes. The 8-km grid is not very flexible 
+and no longer explicitly coordinates monitoring unless multiples of the grid sized are used. For example intensifying the sample to a 4-km grid or reducing it
+to a 16-km grid still allows it to fit directly into the overall national grid. However, this either doubles or halves the sample size which may create infeasible options.
+The Master Sample was created with the sole purpose of coordinating monitoring. It covers all terrestrial habitats in New Zealand and will be expanded to include freshwater,
+an active area of research for DOC in collaboration with the University of Canterbury.
 
 # Conclusions{-}
 
-Although the 8-km grid is an effective sample design for DOC's purpose and some Regional Councils. It may be unfeasible or
+Although the 8-km grid is an effective sample design for DOC's purpose and some Regional Councils. It may be infeasible or
 too inflexible to work for everyone. It is our opinion that using the Master Sample to coordinate and implement monitoring will
 both integrate with DOC's current national monitoring programme and DOC's implementation of the Master Sample as well as 
-meet any sampling requirements and objectives put forth by the councils. For this reason we recommend that
-implementing the New Zealand Master Sample for Regional Council biodiversity monitoring programmes.
+meet any sampling requirements and objectives put forth by the councils. For this reason we recommend the New Zealand Master Sample 
+for Regional Council biodiversity monitoring programmes.
 
 The next development for DOC and the New Zealand Master Sample is to incorporate freshwater explicitly into this same design. A recent publication using
 Halton Iterative Partitioning [@robertson2018] allows for the sampling of a linear network within the current Master Sample framework. The benefit here is that
 freshwater sites selected by the Master Sample will be paired spatially to terrestrial sites. Although the preliminary work on this has been completed to test feasibility,
 it is an ongoing research project to finalize the best approach for sampling the linear network within a selected Halton Frame.
 
-# Case Studies
+## Southland Case Study{-}
 
-## Southland
+There are 495 8-km grid locations in Southland, 277 of which occur on PCL and are monitored by DOC. This leaves
+an additional 218 sites that would be monitored if Southland Regional Council (SRC) implemented the 8-km grid. DOC employs
+non-overlapping rotating panels on a 5-year rotation for SOE monitoring. This means that each year SRC
+would have to monitor roughly 44 randomly selected sites of the 8-km grid. See the Figure 2 for an example of what that 
+may look like.
 
-There are 216 sample locations from the 8-km grid occurring off PCL in the Southland region (Table \@ref(tab:tab1)). Given no resource constraints implementation of monitoring at each of these sample locations would be optimal for monitoring and reporting status and trend for the Southland Region and integrating seamlessly with DOC's NBMP. We recognise that resource constaints are a major impediment to uptake of aligned monitoring for many partner agencies, including Southland Regional Council. In order to scale sample size to match resource constraints using systematic sampling approaches the 8-km grid could be reduced to a 16 or 32-km grid, this would reduce the sample size in the Southland Region from 216 to 108 and 54 respectively. Using the Master Sample to derive sample locations for the Southland Region is conceptually simpler and more flexible than scaling a systematic sample based on the 8-km grid. Simply use all of the Southland region not covered by PCL and apply the Master Sample to derive **N** sample locations. Additionally, site specific monitoring can be derived from the Master Sample. This means sample locations for regional status and trend monitoring overlapping with intensively managed sites can contribute to site specific estimates of monitored parameters. If more (or less) sample locations are needed in the future this can be easily accommodated without compromising the initial sample locations implemented from the Master Sample.
+![Southland Region Example of the 8-km grid single year of sampling, where 44 sites are monitored annually.](images/Tier1SouthlandYear1.png)
 
-In this case study the benefit of using the Master Sample over the 8-km grid is that; 
+Given no resource constraints implementation of monitoring at each of these sample locations would be optimal for monitoring and reporting 
+status and trend for the Southland Region and integrating seamlessly with DOC's NBMP. We recognise that resource constaints are a major 
+impediment to uptake of aligned monitoring for many partner agencies, including SRC. In order to scale sample size to 
+match resource constraints using systematic sampling approaches the 8-km grid could be reduced to a 16 or 32-km grid, this would reduce the 
+sample size in the Southland Region from 218 to 109 and 54 respectively. Using the Master Sample to derive sample locations for the Southland 
+Region is conceptually simpler and more flexible than scaling a systematic sample based on the 8-km grid. Simply use all of the Southland region 
+not covered by PCL and apply the Master Sample to derive **N** sample locations. Additionally, site specific monitoring can be derived from the 
+Master Sample. This means sample locations for regional status and trend monitoring overlapping with intensively managed sites can contribute to 
+site specific estimates of monitored parameters. If more (or less) sample locations are needed in the future this can be easily accommodated 
+without compromising the initial sample locations implemented from the Master Sample.
 
-1. Sample size can be flexibly scaled to adjust to resource constraints.
-2. Regional monitoring of status and trend contributes explicitly to monitoring of intensively managed sites.
-3. The Master Sample can be used to intensify regional status and trend monitoring in sites of specific interest.
+Using the Neyman Allocation for sample size as described above we calculate the following:
+$p_{Impacted} = 21.9\%$, $p_{Native} = 78.1\%$, $n_{native} = 389$ and we still assume that variability is half on impacted than native areas.
+Then
+$$
+	n_{total} = 389/(2*78.1/(2*78.1 + 1*21.9)) = 389/0.877 = 444
+$$
 
-## Horizons Regional Council
+Therefore, in what we have defined as "Native" habitat we would sample 389 sites (277 by DOC on PCL and 112 by SRC) and 55 "Impacted" sites.
+Below, Figure 3 shows the full sample with Master Sample sites across Southland Region. Figure 4 shows the first year of monitoring. We recommend
+that if SRC is interested in implementing this monitoring programme that final spatial processing is completed and the strata used are discussed and
+these sample sizes recalculated. We intend them to give a rough estimate of what stratification can look like for SRC.
 
-Landcare Research developed a possum monitoring plan on behalf of Horizons Regional Council (Horizons) to inform on approximately 1.2 million hectares of 
-area that is managed for possums. The region is broken into Possum Control Operations (PCO) which are selected for management, see Figure \@ref(fig:fig3). The primary monitoring 
-objectives stated are [@gormleywarburton] 
+![Southland Region Example of the Master Sample with 389 sites - 277 PCL, 167 Southland Regional Council.](images/StratifiedSouthland.png)
 
-* "Whether the PCO programme is achieving its aim of maintaining possum populations below a specified target within possum habitat across the region."
-* "The likelihood that the possum density in each PCO is being maintained below a specified target."
+![Southland Region Example of the Master Sample showing year 1 of the sites, 11 Impacted and 23 Native.](images/StratifiedSouthlandYear1.png)
 
-In this case it is important that the monitoring plan informs at both a regional and PCO level to address the overall success of management against
-the success of an operation. A stratified random design using the PCOs was recommended with non-overlapping rotating panels. The PCO is treated as the sampling unit 
-and transects are repeated within selected PCOs in order to get a reliable PCO estimate. There is a resource trade-off between sampling effort within a likely 
-somewhat heterogeneous PCO and across the entire region which will improve regional level estimates but may not inform directly on the success of a particular 
-operation. Selected PCOs are stratified by the immigration pressure of possums into the area. Areas with high immigration pressure (n = 37 of 120 PCOs) make up 31% 
-of all PCOs. We will follow one of the proposed design options for this example shown in Table \@ref(tab:tabpos). Stratification ensures that each year an even number of both high and
-low immigration PCOs are selected at roughly the proportion they make up of the sample. The non-overlapping panels define the time of re measurement of each PCO which is on a 4
-year schedule such that after 8-years each PCO will have been monitored twice estimating trend across the population. Note, that this is an equivalent re measurement method to 
-the NLM monitoring programme and that general trends with some variability can be estimated after several years and likely reliable trends before the 8-year period is completed.
-We will not show how systematic sampling will work for the proposed design as it will not at the 8-km intensity. Instead we will describe the design in the context
-of the New Zealand Master Sample.
+Because we have an infinite number of sites that make up the Master Sample in Southland, all of which are ordered, we are able to move down our
+site list when a site needs to be replaced. For example, if one of the selected sites cannot be sampled because a farmer refuses access to their private
+land then that site is replaced by a new Master Sample site further down the list. This keeps the site replacement completely objective and the 
+full sample intact. Whenever this occurs the scale of inference for the entire study is reduced to "accessible" land but this is typical for these
+types of study and the hope is that there are not fundamental differences in these areas that bias the study.
 
-```{r tabpos, echo = FALSE, warning = FALSE}
-	tab.pos <- data.frame(Year = c(1:4, "Total"), `High Immigration` = c(9,9,9,10,37), `Low Immigration` = c(21, 21, 21, 20, 87), "Total" = c(30, 30, 30, 30, 120))
-	kable(tab.pos, col.names = c("Year", "High Immigration", "Low Immigration", "Total"), caption = "Design option that is proposed by @gormleywarburton.", booktabs = TRUE)
-```
+For SRC the benefit of using the Master Sample over the 8-km grid is that; 
 
-To implement the monitoring programme using the Master Sample we first sample the discrete PCO units by giving them 
-a spatially balanced order for selection using the Halton Frames defined by the bounding box and random seed of the Master Sample [@robertson2018]. 
-Once we order the PCOs the first 9 high immigration PCOs become the year 1 selected PCOs and the next 10-19 become year 2 etc. until all PCOs are 
-selected and given a sampling year. Within each PCO we then select 20 different sites using the Master Sample. In essence, this is how the design described by 
-@gormleywarburton would be implemented using the Master Sample. 
+1. If stratification is impelmented they have reduced costs.
+2. Sample size can be flexibly scaled to adjust to resource constraints.
+3. Regional monitoring of status and trend contributes explicitly to monitoring of intensively managed sites.
+4. The Master Sample can be used to intensify regional status and trend monitoring in sites of specific interest.
+5. Site replacement for non-target areas is built into the sampling procedure.
 
-Figures \@ref(fig:fig3) and \@ref(fig:fig4) show the panel designs based on selection using the Halton Frames and the Master Sample followed by an example
-PCO (Mt Stewart) with 20 sites selected within. Note that the site selected is the beginning of a possum line that would start at a random
-bearing away from the starting point. Each individual site is numbered based on the order of the Master Sample. The results is a reasonably 
-well spread sample with each PCO as well as between PCOs on an annual basis. If sites are inaccessible or non target, the ordering of the Master
-Sample can be used to add new sites that maintain good spatial spread in the area.
-
-
-```{r fig3,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="Each year of PCOs that would be selected under the example monitoring programme."}
-
-knitr::include_graphics("images/HorizonsDesign.png")
-
-```
-
-<!-- ![Each year of PCOs that would be selected under the example monitoring programme.](images/HorizonsDesign.png) -->
-
-
-
-
-```{r fig4,echo = FALSE, warning = FALSE,messages = FALSE,fig.cap="An example of Mt Stewart PCO monitoring sites selected."}
-
-knitr::include_graphics("images/HorizonsExampleSites.png")
-
-```
-
-
-<!-- ![An example of Mt Stewart PCO monitoring sites selected.](images/HorizonsExampleSites.png) -->
-
-Although this design doesn't appear any different than what is proposed in by @gormleywarburton as far as selection of PCO or sites within,
-it is an important illustration that the Master Sample is flexible to adapt to any spatial site selection providing a potentially more
-efficient design through spatial balance. The largest benefit of implementing the Master Sample here instead of a simple random sample or
-a local spatially balanced sample is that sites are inherently matched through their unique ordering and therefore effort can be shared between monitoring
-programmes and it can help Regional Councils work together. The intention of the Master Sample is to be flexible for any needs for terrestrial spatial surveys
-but most importantly to help coordinate (improve efficiency) of monitoring across New Zealand.
 
 #References{-}
