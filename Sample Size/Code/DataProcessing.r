@@ -164,8 +164,8 @@ ms.pts.native <- spTransform(ms.pts.native, CRS(proj4string(lcdb)))
 pts1 <- ms.pts.impact[pcl,]
 pts2 <- ms.pts.native[pcl,]
 
-ms.pts.impact <- ms.pts.impact[!ms.pts.impact$SiteID %in% pts1$SiteID,]
-ms.pts.native <- ms.pts.native[!ms.pts.native$SiteID %in% c(pts2$SiteID, "South2521"),]	# One point is ending up in Milford sound and I think it's a spatial processing issue.
+ms.pts.impact <- ms.pts.impact[!(ms.pts.impact$SiteID %in% pts1$SiteID),]
+ms.pts.native <- ms.pts.native[!(ms.pts.native$SiteID %in% c(paste0(pts2$SiteID), "South2521")),]	# One point is ending up in Milford sound and I think it's a spatial processing issue.
 
 ms.pts <- rbind(ms.pts.impact[1:55,], ms.pts.native[1:112,])
 
@@ -187,7 +187,6 @@ ggplot(data = southland.df, aes(long, lat, group = group)) + geom_polygon(fill =
 	scale_colour_manual(name = "Land Use Type", values = c("Impacted" = "red", "Native" = "blue"), labels = c("Impacted", "Native")) + 
 	theme_bw() + coord_fixed() + xlab("Easting (m)") + ylab("Northing (m)")
 ggsave("Data/StratifiedSouthlandYear1.png")
-
 
 
 #####################
@@ -220,15 +219,81 @@ avg.birds <- merge(avg.birds, lookup, by = "LUC_NAME")
 
 t1.birds.w <- avg.birds[Region == "Wellington Region"]
 
-wellyFans <- rbind(t1.birds.w[,.(Place, Station, Season, Region, Fantail, Bellbird, GreyWarbler = `Grey Warbler`, LUC_NAME)], 
-	avg.birds.w[,.(Place, Station = Point, Season, Region, Fantail, Bellbird, GreyWarbler = `Warbler_Grey`, LUC_NAME)])
+wellyFans <- rbind(t1.birds.w[,.(Place, Station, Season, Region, Fantail, Bellbird, GreyWarbler = `Grey Warbler`, Chaff = Chaffinch, LUC_NAME, PCL = 1)], 
+	avg.birds.w[,.(Place, Station = Point, Season, Region, Fantail, Bellbird, GreyWarbler = `Warbler_Grey`, Chaff = Chaffinch, LUC_NAME, PCL = 0)])
 wellyFans[, "time" := Season - min(Season)]
 
 wellyFans <- merge(wellyFans, lookup)
+
+# Here we have combined Tier 1 and Wellington Data for birds.
+#------------------------------------------------------------
+tmp <- wellyFans[,.(Chaff = mean(Chaff), Bellbird = mean(Bellbird), GreyWarbler = mean(GreyWarbler), Fantail = mean(Fantail)), by = c("Level", "Place", "Region", "PCL")]
+tmp[,.N, by = c("PCL", "Level")]
+
 wellyFans[, .(fan = sd(Fantail), bell = sd(Bellbird), greyWarb = sd(GreyWarbler)), by = "Level"]
 avg.birds[, .(fan = sd(Fantail), bell = sd(Bellbird), greyWarb = sd(`Grey Warbler`))]
 
-m <- glmer.nb(Fantail ~ -1 + Level + (1|Station), data = wellyFans)
+m <- glmer(GreyWarbler ~ -1 + Level + (1|Place), data = wellyFans, family=poisson(link=log), control=glmerControl(optCtrl=list(maxfun=2000000)))
+table(doSim(m))
+table(wellyFans$GreyWarbler)
+# Fails to converge but we simulate realistic data.
+
+# Create data for two scenarios, one full 8-km grid and then for stratified sample.
+full.dat <- data.table(rbind(expand.grid(Level = "Native", Station = LETTERS[1:5], Place = paste0("A", 1:95)), 
+	expand.grid(Level = "Impacted", Station = LETTERS[1:5], Place = paste0("B", 1:32))))
+strat.dat <- data.table(rbind(expand.grid(Level = "Native", Station = LETTERS[1:5], Place = paste0("A", 1:95)), 
+	expand.grid(Level = "Impacted", Station = LETTERS[1:5], Place = paste0("B", 1:16))))
+results <- data.table()
+for(i in 1:1000)
+{
+	getData(m) <- full.dat[,.(Level, Place, Station)]
+	full.dat$y <- doSim(m)
+	f <- full.dat[,.(m = mean(y)), by = "Place"]
+	f <- f[,.(mean = mean(m), SE = sd(m)/sqrt(.N), iter = i, type = "full")]
+	
+	getData(m) <- strat.dat[,.(Level, Station, Place)]
+	strat.dat$y <- doSim(m)
+	s <- full.dat[,.(m = mean(y)), by = c("Place", "Level")]
+	s <- s[,.(mean = mean(m), SE = sd(m)/sqrt(.N)), by = "Level"]
+	s[, "p" := ifelse(Level == "Native", 0.759, 0.241)]
+	s <- s[,.(mean = sum(p*mean), SE = sqrt(sum(p^2*SE^2)), iter = i, type = "strata")]
+	results <- rbind(results, s, f)
+}	
+
+results[, .(lower = quantile(SE, 0.025), mean = mean(SE), upper = quantile(SE, 0.975)), by = "type"]
+
+# Let's show an example where this may fail!
+##########################################
+mc <- glmer(Chaff ~ -1 + Level + (1|Place), data = wellyFans, family=poisson(link=log), control=glmerControl(optCtrl=list(maxfun=2000000)))
+table(doSim(mc))
+table(wellyFans$Chaff)
+# Fails to converge but we simulate realistic data.
+
+# Create data for two scenarios, one full 8-km grid and then for stratified sample.
+full.dat <- data.table(rbind(expand.grid(Level = "Native", Station = LETTERS[1:5], Place = paste0("A", 1:95)), 
+	expand.grid(Level = "Impacted", Station = LETTERS[1:5], Place = paste0("B", 1:32))))
+strat.dat <- data.table(rbind(expand.grid(Level = "Native", Station = LETTERS[1:5], Place = paste0("A", 1:95)), 
+	expand.grid(Level = "Impacted", Station = LETTERS[1:5], Place = paste0("B", 1:16))))
+results2 <- data.table()
+for(i in 1:1000)
+{
+	getData(mc) <- full.dat[,.(Level, Place, Station)]
+	full.dat$y <- doSim(mc)
+	f <- full.dat[,.(m = mean(y)), by = "Place"]
+	f <- f[,.(mean = mean(m), SE = sd(m)/sqrt(.N), iter = i, type = "full")]
+	
+	getData(mc) <- strat.dat[,.(Level, Station, Place)]
+	strat.dat$y <- doSim(mc)
+	s <- full.dat[,.(m = mean(y)), by = c("Place", "Level")]
+	s <- s[,.(mean = mean(m), SE = sd(m)/sqrt(.N)), by = "Level"]
+	s[, "p" := ifelse(Level == "Native", 0.759, 0.241)]
+	s <- s[,.(mean = sum(p*mean), SE = sqrt(sum(p^2*SE^2)), iter = i, type = "strata")]
+	results2 <- rbind(results2, s, f)
+}	
+
+results2[, .(lower = quantile(SE, 0.025), mean = mean(SE), upper = quantile(SE, 0.975)), by = "type"]
+
+
 
 # Build scenarios:
 # Scenario 1. Can we find the proportion of effort to put into off of Native cover types?
