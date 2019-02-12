@@ -147,8 +147,8 @@ However, the Master Sample framework allows for integrating effectiveness monito
 ## Interagency collaboration for State of Environment Monitoring and Reporting{-}
 
 RC's are collaborating to achieve a coordinated approach to regional SOE monitoring. An important consideration is how to effectively integrate with 
-existing monitoring programmes such as the NLM programme. DOC also requires EM coordinated effectiveness monitoring across the organisation while 
-integrated seamlessly with their existing NLM programme 
+existing monitoring programmes such as the NLM programme. DOC also requires coordinated effectiveness monitoring across the organisation while 
+integrating seamlessly with their existing NLM programme. 
 
 To provide for this DOC, in collaboration with the University of Canterbury (UoC), has developed the New Zealand Master Sample [@bates2018]. 
 The New Zealand Master Sample (NZMS) utilises a spatially balanced sampling method with the advantages 
